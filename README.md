@@ -24,7 +24,7 @@ Follow these steps to set up your environment and run the project locally.
 First you have to clone the repo
 
 ```bash
-git clone https://github.com/DGCP3/nati.git && cd nati
+git clone https://github.com/lenatisha/assignment.git && cd assignment
 ```
 
 ### Backend Setup
@@ -41,22 +41,17 @@ git clone https://github.com/DGCP3/nati.git && cd nati
 npm install
 ```
 
-- Create a `.env.local` file in the backend directory and add the following:
+- Create a `.env.local` file with DATABASE_URL the following varialbles :
 
 ```bash
-DATABASE_URL="file:./dev.db"
+  DATABASE_URL= "file:./dev.db"
+  JWT_SECRET= "secret"
 ```
 
 - Push the database schema to the database:
 
 ```bash
 npm run db:push
-```
-
-- Generate the Prisma client:
-
-```bash
-npm run db:generate
 ```
 
 - Start the server:
@@ -67,7 +62,7 @@ npm run start
 
 ### Frontend Setup
 
-- cd frontend
+- Navigate to the backend directory:
 
 ```bash
   cd frontend
@@ -79,13 +74,13 @@ npm run start
   npm install
 ```
 
-- build the project
+- Build the project:
 
 ```bash
   npm run build
 ```
 
-- Start the development server:
+- Start the production server:
 
 ```bash
   npm run preview
