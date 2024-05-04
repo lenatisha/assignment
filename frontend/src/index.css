@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@layer base{
+  :root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+  }
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: InterVariable, sans-serif;
+    }
+  }
+  body {
+    background-color: #f7fafc;
+    font-family: "Inter";
+  }
+
+
+}
+
+::backdrop {
+  background-image: linear-gradient(45deg, magenta, rebeccapurple, dodgerblue, green);
+  opacity: 0.75;
+}
