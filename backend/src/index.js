@@ -87,7 +87,6 @@ async function checkImageOwner(req, res, next) {
 }
 
 async function checkImageIsPublic(req, res, next) {
-  console.log(req.image.public);
   if (!req.image.public) return next();
 
   const filename = req.params.filename;
@@ -166,9 +165,7 @@ app.delete("/image/:userId/:filename", checkCookieMiddleware, checkImageExist, c
   const filename = req.params.filename;
   const userId = req.params.userId;
   const filePath = path.join(uploadDir, `uploads/${userId}/${filename}`);
-  console.log(__dirname);
 
-  console.log(req.image);
 
   fs.unlink(filePath, (err) => {
     if (!err) {
@@ -187,7 +184,7 @@ app.delete("/image/:userId/:filename", checkCookieMiddleware, checkImageExist, c
 });
 
 app.patch("/image/:userId/:filename", checkCookieMiddleware, checkImageExist, async (req, res) => {
-  console.log(req.params.filename, req.body.isPublic);
+ 
   const filename = req.params.filename;
   const image = await prisma.image.update({
     where: { userIdFk: req.user.id, fileName: filename, id: req.body.id },
